@@ -16,6 +16,7 @@ int main(void)
     CHECK("above threshold -> OV",  is_over_voltage(4250u, OV_THRESHOLD_MV) == true);
     CHECK("normal voltage -> no OV", is_over_voltage(3700u, OV_THRESHOLD_MV) == false);
     CHECK("at threshold -> no OV",   is_over_voltage(4200u, OV_THRESHOLD_MV) == false);
+	CHECK("invalid value -> no OV",  is_over_voltage(CELL_MV_INVALID, OV_THRESHOLD_MV) == false);
 
     printf("%d failure(s)\n", failures);
     return failures;
